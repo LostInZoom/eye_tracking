@@ -58,34 +58,38 @@ def box_coord(timestamp):
     box = [0,0,0,0]
     zoom = 0
     etape = 1
+    etat_carte =0 
 
     for t in range(len(resultat)):
         if (timestamp+offset)*1000 >= resultat["time"][t]:
             zoom = resultat["zoom"][t]
             etape = resultat["etape"][t]
             box = [float(resultat["xmin"][t]),float(resultat["ymin"][t]),float(resultat["xmax"][t]),float(resultat["ymax"][t])]
+            etat_carte = int(resultat["etat_carte"][t])
             continue
         else:
             break
     
-    return box,zoom,etape
+    return box,zoom,etape,etat_carte
 for k in range(len(fixation)):
     id = fixation["fixation_id"][k]
     if int(fixation["world_index"][k]) > 10: # on enleve les points de debut lors du lancement de l'acquisition 
-    #on prend en compte les points qui sont positionnée sur la carte 
+    #on prend en compte les points qui sont positionnée sur la carte
         if float(fixation["norm_pos_x"][k]) > box_carte[0] and float(fixation["norm_pos_x"][k]) < box_carte[2]:   
             if float(fixation["norm_pos_y"][k]) > box_carte[1] and float(fixation["norm_pos_y"][k]) < box_carte[3]:
 
-                box_coordinate,zoom,etape = box_coord(fixation["world_timestamp"][k])
+                box_coordinate,zoom,etape,etat_carte = box_coord(fixation["world_timestamp"][k])
             # on calcul la position relative du point dans la carte
-                x_relatif = (float(fixation["norm_pos_x"][k])-box_carte[0])/(box_carte[2]-box_carte[0])
-                y_relatif = (float(fixation["norm_pos_y"][k])-box_carte[1])/(box_carte[3]-box_carte[1])
-                x_coord = box_coordinate[0] + x_relatif*(box_coordinate[2]-box_coordinate[0] )
-                y_coord = box_coordinate[1] + y_relatif*(box_coordinate[3]-box_coordinate[1] )
-                coord_fixation.append([id,x_coord,y_coord,zoom,etape])
+                if(etat_carte == 0 ):
+                    x_relatif = (float(fixation["norm_pos_x"][k])-box_carte[0])/(box_carte[2]-box_carte[0])
+                    y_relatif = (float(fixation["norm_pos_y"][k])-box_carte[1])/(box_carte[3]-box_carte[1])
+                    x_coord = box_coordinate[0] + x_relatif*(box_coordinate[2]-box_coordinate[0] )
+                    y_coord = box_coordinate[1] + y_relatif*(box_coordinate[3]-box_coordinate[1] )
+                    coord_fixation.append([id,x_coord,y_coord,zoom,etape])
+                
 
 
-with open('resultat_enquete/coord_fixation_on_map.csv', 'w', newline='') as file:
+with open('resultat_enquete/coord_fixation_on_map_V2.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["id_fixation","x","y","zoom","etape"]) # rajouter le zoom
     for i in range(len(coord_fixation)):

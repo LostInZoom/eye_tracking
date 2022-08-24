@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Se repérer sur une carte</title>
+  </head>
+  <body>
+    <h2>Formulaire de consentement</h2>
+    J'accepte de participer à une étude dont l'objectif est de 
+    récolter des données afin d'observer la manière dont l'utilisateur se repére,
+    en zoomant ou  dézoomant sur une carte. 
+    <p>Les points suivants m'ont été expliqués :</p>
+    
+  Je comprends que les résultats de cette expérience peuvent 
+  être utilisées dans des publications. 
+  Je reconnais les avantages dont je pourrais profiter au 
+  terme de cette expérience :
+  <ul>
+    <li>Un aperçu des recherches sur la cartographie multi-échelle.</li>
+    <li>Une opportunité de contribuer aux travaux de recherche.</li>
+    <li>Une opportunité d'en apprendre davantage concernant la manière de se repérer sur une carte.</li>
+  </ul>
+  
+  
+  <p>La procédure sera la suivante :</p>
+    
+  <p>Je vais avoir accès à une carte et je vais devoir me repérer ou trouver un lieu précis selon les instructions données oralement par l'encadrant en étant équipé.e d'un eye tracker.</p>
+
+  Les chercheurs et les chercheuses ne prévoient aucun risques 
+  pour ma participation à cette expérience, ils ne s'attendent 
+  pas non plus à ce que je sois confronté.e à quelque inconfort ou 
+  stress.
+
+  <p>Je comprends que je peux me rétracter de cette
+   expérience à tout moment.</p>
+  
+  <p>Je comprends que je recevrai une copie du présent formulaire 
+  si j'en fais la demande.</p>
+  
+  <p>Toutes les données collectées demeurent strictement anonymes. 
+  Mes réponses ne seront jamais associées à mon nom ou mon adresse 
+  e-mail ; en lieu et place, un identifiant unique sera utilisé 
+  pour stocker les données. Les données ainsi anonymisées peuvent 
+  ensuite être rendue accessible à d'autres chercheurs·euses selon 
+  le principe de la science ouverte.</p>
+  
+  <p> Cette expérience respecte le RGPD (contacter dpo@ign.fr pour toute
+    question concernant le RGPD).</p>
+  <p>Pour toute question concernant cette expérience ou le projet 
+  LostInZoom, vous pouvez contacter Guillaume Touya.</p>
+  <p> L'expérience va durer environ 15 minutes.</p>
+<p>Vous pouvez trouvez le document d'information sur la procédure : <a href="document/information_sheet_FR.pdf">Document d'information</a> </p> 
+  <input type='radio' id='valider' name='valider' value="Je suis d'accord" />J'ai lu et accepte les conditions de l'enquête.
+  <p></p>
+ 
+  <input type = "submit" value= "Continuer" id ="continuer">
+
+  <script>
+    var bouton = document.getElementById("continuer");
+    bouton.addEventListener('click',function(){
+      if (document.querySelector('#valider').checked == true){
+        window.location = 'calibration.html'
+      }
+    })
+
+    
+  </script>
+  </body>
+</html>
+
+
