@@ -1,8 +1,8 @@
-import os
+#Ce script permet de convertir les points de fixation dans la scène 3D en coordonnée par rapport à la carte afficher à l 'écran 
+# la V2 prends en compte la rajout de la focntionnalté de cacher la carte /photo
 
-import av
+import os
 import pandas as pd
-import cv2
 import matplotlib.pyplot as plt
 import csv
 import datetime
@@ -22,21 +22,6 @@ start_time_system = float(json_time["start_time_system_s"]) # System Time at rec
 start_time_synced = float(json_time["start_time_synced_s"])     # Pupil Time at recording start
 # Calculate the fixed offset between System and Pupil Time
 offset = start_time_system - start_time_synced
-
-# Choose a Pupil timestamp that you want to convert to System Time
-# (this can be any or all timestamps of interest)
-
-# pupil_timestamp = 674439.4695  # This is a random example of a Pupil timestamp
-
-# Add the fixed offset to the timestamp(s) we wish to convert
-# pupiltime_in_systemtime = pupil_timestamp + offset
-
-# # Using the datetime python module, we can convert timestamps 
-# # stored as seconds represented by floating point values to a 
-# # more readable datetime format.
-# pupil_datetime = datetime.datetime.fromtimestamp(pupiltime_in_systemtime)
-# print(pupil_datetime,pupiltime_in_systemtime*1000)
-
 
 path_to_export = "recordings"
 path_to_enquete = "resultat_enquete"
