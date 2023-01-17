@@ -1,15 +1,15 @@
+# Cette algo permet de d'identifier les temps de zoom et de pan d'une personne, on estime que le zoom ou la pan se finit lorsqu'il ne bouge plus pendant 1s
+
+
 import os
 
-import av
 import pandas as pd
-import cv2
 import matplotlib.pyplot as plt
 import csv
 import datetime
 import json
 
 # resultat_carte.cvs est produit par l'enquête
-# Cette algo permet de savoir quand la persone zoom et pan, on estime que le zoom ou la pan se finit lorsqu'il ne bouge plus pendant 1s
 
 path_to_export = "recordings"
 path_to_resultat= os.path.join(path_to_export, "resultat_carte.csv") # structure : time,zoom,xmin,ymin,xmax,ymax,etape,etat_carte

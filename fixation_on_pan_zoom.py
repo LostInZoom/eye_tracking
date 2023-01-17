@@ -1,11 +1,9 @@
-import os
+# ce script permet de d'isoler les points de fixation lors d'un zoom et d'un pan 
 
-import av
+import os
 import pandas as pd
-import cv2
 import matplotlib.pyplot as plt
 import csv
-import datetime
 import json
 
 
@@ -19,7 +17,6 @@ start_time_system = float(json_time["start_time_system_s"]) # System Time at rec
 start_time_synced = float(json_time["start_time_synced_s"])     # Pupil Time at recording start
 # Calculate the fixed offset between System and Pupil Time
 offset = start_time_system - start_time_synced
-#(timestamp+offset)*1000
 # resultat_carte.cvs est produit par l'enquête
 # Cette algo permet de connairte les fixations durant un pan et un zoom
 
@@ -27,7 +24,6 @@ path_to_export = "recordings"
 path_to_pan= os.path.join(path_to_export, "pan.csv") # structure : time,zoom,xmin,ymin,xmax,ymax,etape,etat_carte
 path_to_zoom= os.path.join(path_to_export, "zoom.csv") # structure : time,zoom,xmin,ymin,xmax,ymax,etape,etat_carte
 path_to_fix= os.path.join(path_to_export, "coord_fixation_on_map.csv") # structure : time,zoom,xmin,ymin,xmax,ymax,etape,etat_carte
-# path_to_fix_500= os.path.join(path_to_export, "coord_fixation_on_map_500.csv") # structure : time,zoom,xmin,ymin,xmax,ymax,etape,etat_carte
 path_to_fixation = os.path.join(path_to_export, "fixations_on_surface_Surface 1.csv")
 
 assert os.path.exists(path_to_pan)

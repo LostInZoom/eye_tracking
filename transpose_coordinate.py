@@ -1,11 +1,10 @@
-#Ce script permet de convertir les points de fixation dans la scène 3D en coordonnée par rapport à la carte afficher à l 'écran 
+#Ce script permet de convertir les points de fixation dans la scène 3D en coordonnée par rapport à la carte afficher à l'écran 
 
 
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import csv
-import datetime
 import json
 
 # resultat_carte.cvs est produit par l'enquête
@@ -36,7 +35,6 @@ assert os.path.exists(path_to_resultat)
 resultat = pd.read_csv(path_to_resultat)
 
 coord_fixation =[]
-# box_coordinate = [565051,6527555,565676,6527850]#(xmin,ymin,xmax,ymax)
 
 box_carte = [8/1920,(1080-(600+140))/1080,(1142+8)/1920,(1080-140)/1080] # a calculer en pourcentage (xmin,ymin,xmax,ymax)
 
