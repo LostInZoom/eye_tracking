@@ -3,86 +3,87 @@
 Python code for processing eye tracking data.
 
 
-# Conseil d’utilisation de l’eye tracker :
+# How to use the Pupil Labs eye tracker :
 
-## 1  Ouverture du logiciel 
-Ouvrir l’application pupil capture et brancher l’eye-tracker.
+## 1  Opening the software
+Open the pupil capture application and connect the eye-tracker.
 ## 2 Calibration :
-### 2.1 Calibration sur l’oeil
-Pour chacun des yeux, il est nécessaire de régler manuellement les caméras qui filment les yeux. Un cercle bleu doit apparaître sur le retour de la caméra comme le montre l'image suivante ou alors un cercle bleu clair pour que la caméra soit bien placé. 
+### 2.1 Calibration on the eye
+For each of the eyes, it is necessary to manually adjust the cameras that film the eyes. A blue circle should appear on the camera return as shown in the following image or a light blue circle so that the camera is in the right position.
  
 ![ ](image/eye_calibration.png)
-### 2.2 Calibration de la lunette
-La calibration de la lunette se fait à l’aide de l’interface de Pupil Capture.
-Pour lancer la calibration il faut sélectionner la partie suivante :
+### 2.2 Calibration of the glasses
+The calibration of the glasses is done using the Pupil Capture interface.
+To start the calibration you have to select the following part:
  ![ ](image/icone_calibration.png)
 
-Il faudra par la suite observer les cinq cibles qui apparaîtront sur l’écran en **gardant la tête immobile**. 
-### 2.3 Test de la calibration
-Il est important de tester la calibration après l’avoir faite. Il se peut qu’il y ait un certain décalage. Pour cela il faut regarder un point particulier et regarder la différence entre la réalité et le retour montré par le logiciel.
+You will then have to observe the five targets that appear on the screen by **keeping your head still**.
+### 2.3 Testing the calibration
+It is important to test the calibration after you have done it. It is possible that there is some discrepancy. To do this, look at a particular point and look at the difference between the reality and the feedback shown by the software.
 Faire photo
-### 2.4 Point important sur la calibration
-La calibration de l’appareil est très fine il est donc important de ne pas toucher le dispositif après calibration. S’il est touché il est important de recommencer la calibration.
-## 3 Mesures
-### 3.1 Définition d’une surface
-Pour ajouter une surface il est nécessaire de rajouter des marqueurs pour la définir qui sont trouvables à l’adresse suivante : [marqueur](https://docs.pupil-labs.com/core/software/pupil-capture/?fbclid=IwAR1PUK2bf_XjfQKnOZtizlDN2OwXjR4twMVRD_qI-99Ei6HBlZOrZVcUBUw#surface-tracking). Ils doivent être positionnés sur la surface à définir comme le montre l’exemple suivant.
+### 2.4 Important point on calibration
+The calibration of the device is very fine so it is important not to touch the device after calibration. If it is touched it is important to repeat the calibration.
+## 3 Measures
+### 3.1 Definition of a surface
+To add a surface it is necessary to add markers to define it which can be found at the following address : [markers](https://docs.pupil-labs.com/core/software/pupil-capture/?fbclid=IwAR1PUK2bf_XjfQKnOZtizlDN2OwXjR4twMVRD_qI-99Ei6HBlZOrZVcUBUw#surface-tracking). They must be positioned on the surface to be defined as shown in the following example.
  
 ![ ](image/marqueurs.png)
 
-Avant de lancer l’acquisition il faut vérifier si les marqueurs sont bien détectés. Les marqueurs doivent être surlignés en vert comme l’exemple ci-dessus. De plus pour être sûr que les marqueurs vont être bien détectés durant l’acquisition, il est nécessaire d’avoir un **bon éclairage**.  
-### 3.2 L’acquisition
-Pour lancer l’acquisition il faut sélectionner le bouton suivant :  
+Before starting the acquisition, check that the markers are detected. The markers should be highlighted in green as in the example above. In addition, to be sure that the markers will be detected during the acquisition, it is necessary to have a **good lighting**.  
+### 3.2 The acquisition
+To start the acquisition, select the following button:
  ![ ](image/icone_R.png)
 
-Le même bouton est utiliser pour stopper l'acquisition.
- 
+The same button is used to stop the acquisition. 
 
-## 4 post traitement
-Les différentes étapes sont aussi réalisables avec Pupil Player avant le lancement de l’enregistrement
-### 4.1 Emplacement des fichiers 
-Les fichiers se situent dans un dossier recordings
-### 4.2 Création d’une surface 
-Il est possible qu’une surface soit déjà présente. Elle peut s’être ajoutée lors de l’enregistrement.
-Pour ajouter une surface il faut dans un premier temps activé *Surface tracker* dans  *plugin manager*.
+## 4 post processing
+The different steps can also be done with Pupil Player before the recording is launched
+### 4.1 File location 
+The files are located in a recordings folder
+### 4.2 Creating a surface 
+It is possible that a surface is already present. It may have been added during the recording process.
+To add a surface you must first activate *Surface tracker* in *plugin manager*.
  ![ ](image/surface_traker.png)
 
-Une fois activé on peut accéder à l’onglet *surface tracker* afin de gérer les surfaces. Il est possible d’en ajouter et d’en supprimer.
+Once activated, you can access the *surface tracker* tab to manage surfaces. It is possible to add and delete them.
   
-### 4.3 Les points de fixation
-Il faut aussi activer les points de fixation  dans *plugin manager*.
+### 4.3 Fixing points
+You must also activate the fixation points in *plugin manager*.
   ![ ](image/fixation_det.png)
 
-Une fois dans l’onglet *Fixation detector* il faut paramétrer les points de fixation. 
+Once in the *Fixation detector* tab, the fixation points must be set.
   ![ ](image/param-fix.png)
 
 
 ### 4.4 Export
- Il est possible d’exporter en sélectionnant le bouton suivant ou appuyer sur la touche *e*.
+ It is possible to export by selecting the following button or pressing the *e* key.
 
-L'emplacement des fichiers par rapport à la surface se situent : *recordings\000\exports\000\surfaces*
+The location of the files in relation to the surface are : *recordings\000\exports\000\surfaces*
 
-# Les différents programmes :
-Frame_identification.py : permet d’extraire les frames qui possèdent un point de fixation et de la découper selon une surface
+# The different programs :
+Frame_identification.py : allows to extract the frames which have a point of fixation and to cut it according to a surface
 
-En entrée : 
-dans un dossier recordings : 
+As input: 
+In a recordings folder :
 - "world_timestamps.csv"
 - "world.mp4"
 - "fixations_on_surface_Surface 1.csv"
 - "marker_detections.csv"
 
-sortie:
-- dans /frame :  les frames extraites qui possédent un point fixe
-- frame/surface_frame : les frames découpées sur la surface 
+output:
+- in /frame: the extracted frames that have a fixed point
+- frame/surface_frame: the frames cut on the surface 
 
 
-Transpose_coordinate.py : permet d’obtenir les coordonnées en Lambert 93 des points de fixation par rapport à la carte affichée.
+Transpose_coordinate.py : allows to obtain the coordinates in Lambert 93 of the fixation points in relation to the displayed map.
 
-Il faut regler les paramétres :  box_coordinate et box_carte.
+You have to set the parameters: box_coordinate and box_map.
 
-En entrée : 
-dans un dossier transpose : 
+As input : 
+in a transpose file :
 - "fixations_on_surface_Surface 1.csv"
+- "world_timestamps.csv"
+- "infoplayer.json"
 
-sortie:
-- dans /transpose : coord_fixation_on_map_.csv
+output:
+- in /transpose : coord_fixation_on_map_.csv
