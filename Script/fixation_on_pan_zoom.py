@@ -40,13 +40,15 @@ pan = pd.read_csv(path_to_pan)
 
 # recpipération des temps debut et fin des pan et zoom
 time_zoom = []
+liste_index_z =[]
+liste_index_p =[]
 
 for i in range(len(zoom)): 
-    time_zoom.append([zoom["tps_ini"][i],zoom["tps_f"][i]])
+    time_zoom.append([zoom["tps_ini"][i],zoom["tps_f"][i],i])
 
 time_pan = []
 for i in range(len(pan)): 
-    time_pan.append([pan["tps_ini"][i],pan["tps_f"][i]])
+    time_pan.append([pan["tps_ini"][i],pan["tps_f"][i],i])
 liste_index_zoom = []
 liste_index_pan = []
 for k in range(len(fixation)):
@@ -55,29 +57,42 @@ for k in range(len(fixation)):
     for zoom in time_zoom:
         if time > zoom[0] and time < zoom[1]:
             liste_index_zoom.append(fixation["fixation_id"][k])
+            liste_index_z.append(zoom[2])
+
     for pan in time_pan:
         if time > pan[0] and time < pan[1]:
             liste_index_pan.append(fixation["fixation_id"][k])
+            liste_index_p.append(pan[2])
+
 liste_pan =[]
 liste_zoom = []
+
+
 for j in range(len(fix_80)):
+
     if fix_80["id_fixation"][j] in liste_index_zoom:
-        liste_zoom.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j]])
+        liste_zoom.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j],liste_index_z[liste_index_zoom.index(fix_80["id_fixation"][j])]])
     if fix_80["id_fixation"][j] in liste_index_pan:
-        liste_pan.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j]])
+        liste_pan.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j],liste_index_p[liste_index_pan.index(fix_80["id_fixation"][j])]])
+
+# for j in range(len(fix_80)):
+#     if fix_80["id_fixation"][j] in liste_index_zoom:
+#         liste_zoom.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j]])
+#     if fix_80["id_fixation"][j] in liste_index_pan:
+#         liste_pan.append([fix_80["id_fixation"][j],fix_80["x"][j],fix_80["y"][j],fix_80["zoom"][j],fix_80["etape"][j]])
 
 
 
-with open('resultat_enquete/pan_fixation_on_map.csv', 'w', newline='') as file:
+with open('resultat_enquete/pan_fixation_on_map_id.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["id_fixation","x","y","zoom","etape"]) # rajouter le zoom
+    writer.writerow(["id_fixation","x","y","zoom","etape",'id_pan']) # rajouter le zoom
     for i in range(len(liste_pan)):
         writer.writerow(liste_pan[i])
 
 
 
-with open('resultat_enquete/zoom_fixation_on_map.csv', 'w', newline='') as file:
+with open('resultat_enquete/zoom_fixation_on_map_id.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["id_fixation","x","y","zoom","etape"]) # rajouter le zoom
+    writer.writerow(["id_fixation","x","y","zoom","etape",'id_zoom']) # rajouter le zoom
     for i in range(len(liste_zoom)):
         writer.writerow(liste_zoom[i])

@@ -42,7 +42,13 @@ def recursivite_pan(i):
     rang = 0
     if (i < len(resultat)-10):
         x_min_in = resultat["xmin"][i+1]
+        
         if(x_min_in == resultat["xmin"][i+2] and x_min_in == resultat["xmin"][i+3] and x_min_in == resultat["xmin"][i+4]  and x_min_in == resultat["xmin"][i+5] and x_min_in == resultat["xmin"][i+6]  and x_min_in == resultat["xmin"][i+7] and x_min_in == resultat["xmin"][i+8] and x_min_in == resultat["xmin"][i+9]and x_min_in == resultat["xmin"][i+10]):
+            tps_fin = resultat["time"][i+1]
+            x_min_f,y_min_f,x_max_f,y_max_f = resultat["xmin"][i+1],resultat["ymin"][i+1],resultat["xmax"][i+1],resultat["ymax"][i+1]
+            rang = i+1
+            etape = resultat["etape"][i+1]
+        elif (resultat["zoom"][i+1] != resultat["zoom"][i+2]):
             tps_fin = resultat["time"][i+1]
             x_min_f,y_min_f,x_max_f,y_max_f = resultat["xmin"][i+1],resultat["ymin"][i+1],resultat["xmax"][i+1],resultat["ymax"][i+1]
             rang = i+1
