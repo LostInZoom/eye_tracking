@@ -56,6 +56,7 @@ def box_coord(timestamp):
     
     return box,zoom,etape,etat_carte
 for k in range(len(fixation)):
+    world_index = fixation["world_index"][k]
     id = fixation["fixation_id"][k]
     if int(fixation["world_index"][k]) > 10: # on enleve les points de debut lors du lancement de l'acquisition 
     #on prend en compte les points qui sont positionnée sur la carte
@@ -69,12 +70,12 @@ for k in range(len(fixation)):
                     y_relatif = (float(fixation["norm_pos_y"][k])-box_carte[1])/(box_carte[3]-box_carte[1])
                     x_coord = box_coordinate[0] + x_relatif*(box_coordinate[2]-box_coordinate[0] )
                     y_coord = box_coordinate[1] + y_relatif*(box_coordinate[3]-box_coordinate[1] )
-                    coord_fixation.append([id,x_coord,y_coord,zoom,etape])
+                    coord_fixation.append([world_index,id,x_coord,y_coord,zoom,etape])
                 
 
 
-with open('resultat_enquete/coord_fixation_on_map_V2.csv', 'w', newline='') as file:
+with open('fixation_on_map/coord_fixation_on_map_20.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["id_fixation","x","y","zoom","etape"]) # rajouter le zoom
+    writer.writerow(["world_index", "id_fixation","x","y","zoom","etape"]) # rajouter le zoom
     for i in range(len(coord_fixation)):
         writer.writerow(coord_fixation[i])

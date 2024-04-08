@@ -9,7 +9,9 @@
 /transpose
 /recordings
 resultat.qgz
-VF_zone2*
-formule.docx
+*.docx
 /Ancien_script
-Stats
+/image article
+/zone_interet
+nettoyage.py
+*.qgz

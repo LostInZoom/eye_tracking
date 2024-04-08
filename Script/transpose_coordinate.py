@@ -13,7 +13,7 @@ import json
 
 
 
-f = open('recordings/info.player.json',)
+f = open('infos_player/info.player_5.json',)
 json_time = json.load(f)
 
 
@@ -23,10 +23,10 @@ start_time_synced = float(json_time["start_time_synced_s"])     # Pupil Time at 
 offset = start_time_system - start_time_synced
 
 
-path_to_export = "recordings"
-path_to_enquete = "resultat_enquete"
-path_to_fixation = os.path.join(path_to_export, "fixations_on_surface_Surface 1.csv")
-path_to_resultat= os.path.join(path_to_export, "resultat_carte.csv")
+path_to_export = "fixations_on_surface"
+path_to_enquete = "recordings"
+path_to_fixation = os.path.join(path_to_export, "fixations_on_surface_Surface_5.csv")
+path_to_resultat= os.path.join(path_to_enquete, "resultat_carte.csv")
 
 assert os.path.exists(path_to_fixation)
 fixation = pd.read_csv(path_to_fixation)
@@ -55,6 +55,7 @@ def box_coord(timestamp):
     return box,zoom,etape
 for k in range(len(fixation)):
     id = fixation["fixation_id"][k]
+    world_index = fixation["world_index"][k]
     if int(fixation["world_index"][k]) > 10: # on enleve les points de debut lors du lancement de l'acquisition 
     #on prend en compte les points qui sont positionnée sur la carte 
         if float(fixation["norm_pos_x"][k]) > box_carte[0] and float(fixation["norm_pos_x"][k]) < box_carte[2]:   
@@ -66,11 +67,11 @@ for k in range(len(fixation)):
                 y_relatif = (float(fixation["norm_pos_y"][k])-box_carte[1])/(box_carte[3]-box_carte[1])
                 x_coord = box_coordinate[0] + x_relatif*(box_coordinate[2]-box_coordinate[0] )
                 y_coord = box_coordinate[1] + y_relatif*(box_coordinate[3]-box_coordinate[1] )
-                coord_fixation.append([id,x_coord,y_coord,zoom,etape])
+                coord_fixation.append([world_index,id,x_coord,y_coord,zoom,etape])
 
 
-with open('resultat_enquete/coord_fixation_on_map.csv', 'w', newline='') as file:
+with open('coord_fixation_on_map/coord_fixation_on_map_5.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(["id_fixation","x","y","zoom","etape"]) # rajouter le zoom
+    writer.writerow(["world_index","id_fixation","x","y","zoom","etape"]) # rajouter le zoom
     for i in range(len(coord_fixation)):
         writer.writerow(coord_fixation[i])
