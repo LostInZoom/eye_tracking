@@ -8,7 +8,7 @@ import datetime
 import json
 
 
-path_to_export = "recordings"
+path_to_export = "Stats/script/recordings"
 path_to_1= os.path.join(path_to_export, "stat_1_time.csv") 
 path_to_3= os.path.join(path_to_export, "stat_3_time.csv") 
 path_to_4= os.path.join(path_to_export, "stat_4_time.csv") 

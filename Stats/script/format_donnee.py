@@ -41,6 +41,12 @@ with open('Stats/liste_time.csv', 'w', newline='') as file:
     for i in range(len(liste_time)):
         writer.writerow(liste_time[i])
 
+with open('Stats/liste_fix.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["n","nbr","etape"]) 
+    for i in range(len(liste_fix)):
+        writer.writerow(liste_fix[i])
+
 
 with open('Stats/liste_zoom.csv', 'w', newline='') as file:
     writer = csv.writer(file)
@@ -56,23 +62,23 @@ with open('Stats/liste_pan.csv', 'w', newline='') as file:
         writer.writerow(liste_pan[i])
 
 
-# with open('Stats/liste_fix_4.csv', 'w', newline='') as file:
-#     writer = csv.writer(file)
-#     writer.writerow(["n","nbr","etape"]) 
-#     for i in range(len(liste_fix_4)):
-#         writer.writerow(liste_fix_4[i])
+with open('Stats/liste_fix_4.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["n","nbr","etape"]) 
+    for i in range(len(liste_fix_4)):
+        writer.writerow(liste_fix_4[i])
 
-# with open('Stats/liste_zoom_4.csv', 'w', newline='') as file:
-#     writer = csv.writer(file)
-#     writer.writerow(["n","nbr","etape"]) 
-#     for i in range(len(liste_zoom_4)):
-#         writer.writerow(liste_zoom_4[i])
+with open('Stats/liste_zoom_4.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["n","nbr","etape"]) 
+    for i in range(len(liste_zoom_4)):
+        writer.writerow(liste_zoom_4[i])
 
 
-# with open('Stats/liste_pan_4.csv', 'w', newline='') as file:
-#     writer = csv.writer(file)
-#     writer.writerow(["n","nbr","etape"]) 
-#     for i in range(len(liste_pan_4)):
-#         writer.writerow(liste_pan_4[i])
+with open('Stats/liste_pan_4.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["n","nbr","etape"]) 
+    for i in range(len(liste_pan_4)):
+        writer.writerow(liste_pan_4[i])
         
 

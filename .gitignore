@@ -5,7 +5,7 @@
 /export ET
 /resultat_enquete
 /transpose
-/Stats/script/recordings
+/Stats
 /transpose
 /recordings
 resultat.qgz
@@ -16,8 +16,7 @@ resultat.qgz
 nettoyage.py
 *.qgz
 /Script/Polyline_Hausdorff-main
-/Stats/*.csv
-/Stats/resultats 
+/Stats/script
 /Script/coord_fixation_on_map
 /Script/fixations_on_surface
 /Script/infos_player
@@ -38,3 +37,4 @@ nettoyage.py
 /Script/zoom_dist_pixel
 /Script/zoom_time
 
+/zoom_coord

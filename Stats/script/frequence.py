@@ -36,7 +36,10 @@ for i in range(len(stat_fix)):
         liste_fix_freq.append([stat_fix['n'][i],stat_fix[str(k)][i]/stat_time[str(k)][i],k])
         liste_pan_freq.append([stat_pan['n'][i],stat_pan[str(k)][i]/stat_time[str(k)][i],k])
         liste_zoom_freq.append([stat_zoom['n'][i],stat_zoom[str(k)][i]/stat_time[str(k)][i],k])
-
+    # for k in range(7,9):
+    #     liste_fix_freq.append([stat_fix['n'][i],stat_fix[str(k)][i]/stat_time[str(k)][i],k])
+    #     liste_pan_freq.append([stat_pan['n'][i],stat_pan[str(k)][i]/stat_time[str(k)][i],k])
+    #     liste_zoom_freq.append([stat_zoom['n'][i],stat_zoom[str(k)][i]/stat_time[str(k)][i],k])
     
 with open('Stats/liste_fix_freq.csv', 'w', newline='') as file:
     writer = csv.writer(file)
