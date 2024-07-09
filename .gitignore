@@ -15,3 +15,6 @@ resultat.qgz
 /zone_interet
 nettoyage.py
 *.qgz
+/Script/Polyline_Hausdorff-main
+/Stats/*.csv
+/Stats/resultats

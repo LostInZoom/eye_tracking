@@ -35,10 +35,8 @@ def calcul_buffer(zoom):
 zoom = glob.glob('zoom/*')
 zoom_center = glob.glob('zoom_center/*')
 
-
 liste_zoom_fixation = []
 liste_zoom_center = []
-
 
 for i in range(len(zoom)):
     assert os.path.exists(zoom[i])
@@ -83,21 +81,21 @@ for x in range(len(liste_zoom_fixation)):
 
 
 
-# #comparaison in out 
-# valeur_in = []
-# valeur_out = []
+#comparaison in out 
+valeur_in = []
+valeur_out = []
 
-# for x in range(len(liste_valeur)):
-#     liste_valeur_x = liste_valeur[x]
+for x in range(len(liste_valeur)):
+    liste_valeur_x = liste_valeur[x]
 
-#     for valeur in liste_valeur_x:
-#         if valeur[2] =='in':
-#             valeur_in.append(valeur[1])
-#         else:
-#             valeur_out.append(valeur[1])
+    for valeur in liste_valeur_x:
+        if valeur[2] =='in':
+            valeur_in.append(valeur[1])
+        else:
+            valeur_out.append(valeur[1])
 
-# plt.hist(valeur_in, bins=10, edgecolor='k')
-# plt.show()
+plt.hist(valeur_in, bins=10, edgecolor='k')
+plt.show()
 
 
 # for x in range(len(liste_valeur)):
