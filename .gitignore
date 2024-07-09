@@ -17,4 +17,4 @@ nettoyage.py
 *.qgz
 /Script/Polyline_Hausdorff-main
 /Stats/*.csv
-/Stats/resultats
+/Stats/resultats 
